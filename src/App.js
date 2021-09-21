@@ -1,24 +1,18 @@
-import logo from './logo.svg';
+
+import Bootstrapform from './components/Bootstrapform/Bootstrapform';
+import Myform from './components/Myform/Myform';
+import Myformclass from './components/Myformclass/Myformclass';
 import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Myform/>
+    {/* <Bootstrapform/> */}
+    <Myformclass/>
+    </>
   );
 }
 

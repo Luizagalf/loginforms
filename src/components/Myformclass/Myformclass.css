@@ -1,0 +1,14 @@
+.formError {
+    color: red;
+}
+
+.inputform {
+    border: 0.1em solid green;
+    background-color:#e8f0fe !important;
+    color: black;
+}
+
+.errorform {
+    border: 0.1em solid red;
+    background-color:lightpink;
+}
