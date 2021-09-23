@@ -25,7 +25,7 @@ const Myform = () => {
     }
 
     return (
-        <form className="row">
+        <form className="row" noValidate>
             <h2>Sign up (function component)</h2>
             <input
                 required
@@ -34,7 +34,7 @@ const Myform = () => {
                 placeholder="Your name"
                 value={login}
                 onChange={handleInputChange}
-                className={colorInput}
+                className={`standartinput ${colorInput}`}
             />
             <button type="submit" disabled={!loginlValid}>Sign up</button>
             <div>

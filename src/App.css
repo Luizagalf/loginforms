@@ -19,10 +19,13 @@ button {
   color: white;
 }
 
-input {
+.standartinput {
   width: 300px !important;
   margin: 0 auto;
   border-radius: 6px;
+}
+
+input {
   border: 0.1em solid cornflowerblue;
 }
 

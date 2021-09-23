@@ -10,8 +10,9 @@ function App() {
   return (
     <>
     <Myform/>
-    {/* <Bootstrapform/> */}
     <Myformclass/>
+    <h2>Bootstrap</h2>
+    <Bootstrapform/>
     </>
   );
 }

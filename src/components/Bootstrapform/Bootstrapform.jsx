@@ -19,24 +19,26 @@ function Wordlist() {
 
     return (
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-            <Form.Group as={Col} md="4" controlId="validationCustom01">
-                <Form.Label>Your name</Form.Label>
-                <Form.Control
-                    required
-                    type="text"
-                    placeholder="First name"
-                    defaultValue="Luiza"
-                />
-                <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            </Form.Group>
-            <Form.Group>
-                <Form.Check
-                    required
-                    label="Agree to terms and conditions"
-                    feedback="You must agree before submitting."
-                />
-            </Form.Group>
-            <Button type="submit">Submit form</Button>
+            <Row>
+                <Form.Group controlId="validationCustom01" >
+                    <Form.Control
+                        required
+                        type="text"
+                        placeholder="Your name"
+                        className="standartinput"
+                    />
+                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                </Form.Group>
+                <Form.Group style={{ display: "flex", justifyContent: "center" }}>
+                    <Form.Check
+                        required
+                        type="checkbox"
+                        label="Agree to terms and conditions"
+                        feedback="You must agree before submitting."
+                    />
+                </Form.Group>
+                <Button type="submit">Submit form</Button>
+            </Row>
         </Form>
     );
 }

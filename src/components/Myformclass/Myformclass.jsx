@@ -59,16 +59,16 @@ class Myformclass extends React.Component {
 
     render() {
         return (
-            <form className="row">
+            <form className="row" noValidate>
                 <h2>Sign up (class component)</h2>
                 <input type="email" required name="email"
                     placeholder="Email"
                     value={this.state.email}
-                    onChange={this.handleInputChange} className={this.state.changeColorInput.email} />
+                    onChange={this.handleInputChange} className={`standartinput ${this.state.changeColorInput.email}`} />
                 <input type="password" name="password"
                     placeholder="Password"
                     value={this.state.password}
-                    onChange={this.handleInputChange} className={this.state.changeColorInput.password} />
+                    onChange={this.handleInputChange} className={`standartinput ${this.state.changeColorInput.password}`} />
 
                 <button type="submit" disabled={!this.state.formValid}>Sign up</button>
                 <div>
