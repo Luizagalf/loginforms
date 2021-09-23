@@ -11,7 +11,8 @@ class Myformclass extends React.Component {
             formError: { email: '', password: '' },
             emailValid: false,
             passwordValid: false,
-            formValid: false
+            formValid: false,
+            changeColorInput: { email: '', password: '' }
         }
     }
 
@@ -28,15 +29,18 @@ class Myformclass extends React.Component {
         let fieldValidationError = this.state.formError;
         let emailValid = this.state.emailValid;
         let passwordValid = this.state.passwordValid;
+        let changeColorInput = this.state.changeColorInput;
 
         switch (fieldName) {
             case 'email':
                 emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
                 fieldValidationError.email = emailValid ? '' : ' is wrong';
+                changeColorInput.email = emailValid ? 'inputform' : 'errorform';
                 break;
             case 'password':
                 passwordValid = value.length >= 4;
                 fieldValidationError.password = passwordValid ? '' : ' must be at least 4 characters in length';
+                changeColorInput.password = passwordValid ? 'inputform' : 'errorform';
                 break;
             default:
                 break;
@@ -44,7 +48,8 @@ class Myformclass extends React.Component {
         this.setState({
             formError: fieldValidationError,
             emailValid: emailValid,
-            passwordValid: passwordValid
+            passwordValid: passwordValid,
+            changeColorInput: changeColorInput,
         }, this.validateForm);
     }
 
@@ -55,15 +60,15 @@ class Myformclass extends React.Component {
     render() {
         return (
             <form className="row">
-                <h2>Sign up</h2>
+                <h2>Sign up (class component)</h2>
                 <input type="email" required name="email"
                     placeholder="Email"
                     value={this.state.email}
-                    onChange={this.handleInputChange} className={`${this.state.emailValid ? "inputform" : "errorform"}`} />
+                    onChange={this.handleInputChange} className={this.state.changeColorInput.email} />
                 <input type="password" name="password"
                     placeholder="Password"
                     value={this.state.password}
-                    onChange={this.handleInputChange} className={`${this.state.passwordValid ? "inputform" : "errorform"}`} />
+                    onChange={this.handleInputChange} className={this.state.changeColorInput.password} />
 
                 <button type="submit" disabled={!this.state.formValid}>Sign up</button>
                 <div>

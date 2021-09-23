@@ -2,39 +2,45 @@
 import React, {
     useState
 } from 'react';
+import './Myform.css';
+
 
 const Myform = () => {
-    const [validated, setValidated] = useState(false);
+    const [login, setLogin] = useState("");
+    const [loginlValid, setloginlValid] = useState(false);
+    const [formError, setformError] = useState("");
+    const [colorInput, setcColorInput] = useState("")
 
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
+    const handleInputChange = (e) => {
+        setLogin(e.target.value);
+        if (e.target.value.length > 0 && e.target.value.match("^[a-zA-Z\s]+$")) {
+            setloginlValid(true);
+            setformError("");
+            setcColorInput("greenform")
+        } else {
+            setformError("Please enter the name in Latin characters, without numbers and other symbols");
+            setloginlValid(false);
+            setcColorInput("errorform")
         }
-
-        setValidated(true);
-    };
+    }
 
     return (
-        <form noValidate validated={validated} onSubmit={handleSubmit} className="row">
-            <h2>Your name</h2>
+        <form className="row">
+            <h2>Sign up (function component)</h2>
             <input
                 required
+                name="login"
                 type="text"
-                placeholder="First name"
-                value="Luiza"
+                placeholder="Your name"
+                value={login}
+                onChange={handleInputChange}
+                className={colorInput}
             />
-            <p>Looks good!</p>
+            <button type="submit" disabled={!loginlValid}>Sign up</button>
             <div>
-                <input
-                    required
-                    label="Agree to terms and conditions"
-                    feedback="You must agree before submitting."
-                />
+                <p className="formError">{formError}</p>
             </div>
-            <button type="submit">Submit form</button>
-        </form>
+        </form >
     );
 }
 

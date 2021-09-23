@@ -2,7 +2,7 @@
     color: red;
 }
 
-.inputform {
+.greenform {
     border: 0.1em solid green;
     background-color:#e8f0fe !important;
     color: black;
@@ -10,6 +10,5 @@
 
 .errorform {
     border: 0.1em solid red;
-    background-color:lightpink;
+    background-color:lightpink !important;
 }
-
